@@ -67,7 +67,6 @@ function SearchBox({
           const data = await response.json();
           setWeatherData(data);
           setLoadingState(false);
-          console.log("Weather data:", data); // You can handle the data as needed
         } else {
           console.error("Failed to fetch weather data");
         }
@@ -81,7 +80,6 @@ function SearchBox({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    console.log(suggestions);
     if (suggestions.length === 0 || suggestions[0] === "No matches found")
       return;
 
