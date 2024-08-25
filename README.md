@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Weather App
+
+## Description
+
+This Weather App is a Next.js-based web application that provides real-time weather information for various localities. It uses data from the Zomato API to fetch and display weather conditions, including temperature, humidity, wind speed, and more.
+
+## Features
+
+- Search for weather information by locality
+- Real-time weather data display
+- Dynamic weather backgrounds based on current conditions
+- Responsive design for various screen sizes
+
+## Technologies Used
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Zomato API for weather data
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js (v14 or later)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/your-username/weather-app.git
+   ```
+
+2. Navigate to the project directory:
+   ```
+   cd weather-app
+   ```
+
+3. Install dependencies:
+   ```
+   npm install
+   ```
+   or
+   ```
+   yarn install
+   ```
+
+4. Create a `.env.local` file in the root directory and add your Zomato API key:
+   ```
+   NEXT_PUBLIC_ZOMATO_KEY=your_api_key_here
+   ```
+
+### Running the Application
+
+To start the development server:
 ```
+   npm run dev
+   ```
+   or
+   ```
+   yarn dev
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `src/app`: Contains the main application pages and layouts
+- `src/component`: React components used throughout the application
+- `src/data`: Static data files (e.g., locality data)
+- `public`: Static assets
 
-## Learn More
+## Key Components
 
-To learn more about Next.js, take a look at the following resources:
+- `SearchBox`: Handles user input and locality search functionality
+- `WeatherBackground`: Displays weather information and dynamic backgrounds
+- `localityData.js`: Contains the list of available localities and their coordinates
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This project can be easily deployed on Vercel. For more information on deploying Next.js apps, refer to the [Next.js deployment documentation](https://nextjs.org/docs/deployment).
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Acknowledgements
+
+- Weather data provided by Zomato API
+- Created by Navneet Gupta (anavneetgupta@jklu.edu.in)
