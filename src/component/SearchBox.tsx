@@ -1,11 +1,17 @@
 "use client";
 import LocalityData from "@/data/localityData";
 import React, { useState, ChangeEvent, useEffect, useRef } from "react";
-
 interface Suggestion {
   cityName: string;
   localityName: string;
-  localityId: string; // Assuming localityId is part of the Suggestion object
+  localityId: string;
+}
+
+interface SearchBoxProps {
+  weatherData: any; // Replace 'any' with the actual type of weatherData
+  setWeatherData: React.Dispatch<React.SetStateAction<any>>; // Replace 'any' with the actual type
+  headInputValue: string;
+  setHeadInputValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
 function SearchBox({
@@ -13,7 +19,7 @@ function SearchBox({
   setWeatherData,
   headInputValue,
   setHeadInputValue,
-}) {
+}: SearchBoxProps) {
   const [suggestions, setSuggestions] = useState<(Suggestion | string)[]>([]);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(-1);
   const activeSuggestionRef = useRef<HTMLLIElement | null>(null);
@@ -96,9 +102,12 @@ function SearchBox({
 
   useEffect(() => {
     if (activeSuggestionIndex >= 0 && suggestions[activeSuggestionIndex]) {
-      setInputValue(
-        `${suggestions[activeSuggestionIndex].localityName}, ${suggestions[activeSuggestionIndex].cityName}`
-      );
+      const suggestion = suggestions[activeSuggestionIndex];
+      if (typeof suggestion !== "string") {
+        setInputValue(`${suggestion.localityName}, ${suggestion.cityName}`);
+      } else {
+        setInputValue(suggestion);
+      }
       // Scroll the active suggestion into view
       activeSuggestionRef.current?.scrollIntoView({
         behavior: "smooth",
