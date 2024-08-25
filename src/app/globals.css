@@ -26,8 +26,68 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.suggestions-list {
+  border: 1px solid #ccc;
+  background: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.suggestions-list li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.suggestions-list li.active,
+.suggestions-list li:hover {
+  background-color: #e9e9e9;
+}
+
+.suggestions-list li.active {
+  font-weight: bold;
+}
+
+@keyframes moveWind {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+.animate-wind {
+  animation: moveWind linear infinite;
+}
+
+input {
+  @apply w-full p-2 text-2xl rounded-lg pl-3;
+}
+
+input:focus {
+  outline: none;
+}
+
+.weather-analysis {
+  @apply w-full h-screen flex flex-col items-center justify-center relative transition-all duration-500 gap-2.5;
+}
+
+.bento-grid {
+  @apply grid gap-4 m-auto p-5 bg-white bg-opacity-80 rounded-lg overflow-y-auto;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  max-width: calc(3 * 200px + 2 * 1rem);
+}
+
+.bento-item {
+  @apply text-center bg-white p-5 rounded-lg shadow-md;
+}
+
+@media (max-width: calc(3 * 200px + 2 * 1rem)) {
+  .bento-grid {
+    grid-template-columns: 1fr;
   }
 }
